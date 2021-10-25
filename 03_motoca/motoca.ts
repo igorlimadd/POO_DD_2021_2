@@ -28,6 +28,10 @@ class Motorcycle{
         if (this.person != null){
             console.log("Já têm alguém em cima da moto");
             return;
+        }else{
+            this.person = person;
+            return;
+
         }
     }
     descer(person:Person):void{
@@ -35,15 +39,20 @@ class Motorcycle{
             console.log("Não tem ninguém na moto");
             return;
         }else{
-           this.person += 1;                                              //tentei adicionar pessoa na moto, mas não lembro como adicionar pessoa para uma classe
-        }
+           this.person = null;                                              
     }
-    dirigir(){
-        if(this.age < 10){                                                   //COMO CHAMAR A CLASSE PERSON AQUI?
+    dirigir(time:number):boolean{
+        if (this.person === null){
+            console.log("Não tem ninguém na moto");
+            return false;
+
+        }
+        if(this.person.age < 10){                                                   //COMO CHAMAR A CLASSE PERSON AQUI?
             console.log("se ainda tem tempo, pode passear");
-            return;
+            return false;
         }  
     }
+
     toString(){
         return "POWER: " + this.power + " , " + "TIME: " + this.time;
     }
